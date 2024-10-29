@@ -82,9 +82,23 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     public boolean retrive(T item){
 
-    
+        return retrieveHelper(root, item);
     }
 
+    public boolean retrieveHelper(NodeType<T> curr, T item){
+
+        if(curr == null){
+            return false;
+        }
+
+        if(item.compareTo(curr.info) == 0){
+            return true; 
+        } else if(item.compareTo(curr.info) < 0){
+            return retrieveHelper(curr.left, item);
+        } else {
+            return retrieveHelper(curr.right, item);
+        }
+    }
 
     public void inOrder(){
 
@@ -114,7 +128,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     public void getSingleParent(){
         
-
+        
     }
 
 
@@ -128,4 +142,5 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
         
     }
+
 }

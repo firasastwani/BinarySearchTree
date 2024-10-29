@@ -18,9 +18,9 @@ public class BinarySearchTreeDriver<T extends Comparable<T>> {
         bst.insert(18);
 
         bst.inOrder();
-
-        bst.delete(15);
-
+        bst.delete(18);
         bst.inOrder();
+
+        System.out.println(bst.retrive(10));
     }
 }
