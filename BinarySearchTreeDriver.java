@@ -13,14 +13,14 @@ public class BinarySearchTreeDriver<T extends Comparable<T>> {
         bst.insert(5);
         bst.insert(15);
         bst.insert(3);
-        bst.insert(7);
+        //bst.insert(7);
         bst.insert(12);
-        bst.insert(18);
+        //bst.insert(18);
 
-        bst.inOrder();
-        bst.delete(18);
+        //bst.delete(18);
         bst.inOrder();
 
-        System.out.println(bst.retrive(10));
+        System.out.println(bst.getSingleParent());
     }
+
 }

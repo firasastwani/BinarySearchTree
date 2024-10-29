@@ -132,10 +132,29 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return list;
     }
 
+    // prints the nodes that have only one child 
+    public List<T> getSingleParent(){
+    
+        LinkedList<T> list = new LinkedList<>(); 
 
-    public void getSingleParent(){
-        
-        
+        return singleParentHelper(root, list);         
+    }
+
+    // helper method for the getSingleParent method
+    public List<T> singleParentHelper(NodeType<T> curr, LinkedList<T> list){
+
+        if(curr == null){
+            return list; 
+        }
+
+        if(curr.left == null && curr.right != null || curr.left != null && curr.right == null){
+            list.add(curr.info); 
+        }
+
+        singleParentHelper(curr.left, list);
+        singleParentHelper(curr.right, list);
+
+        return list; 
     }
 
 
