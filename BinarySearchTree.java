@@ -3,9 +3,10 @@ import java.util.List;
 
 public class BinarySearchTree<T extends Comparable<T>> {
 
+    // initializes the root of the tree 
     private NodeType<T> root;
 
-
+    // inserts a new node with a given key
     public void insert(T key){
 
         NodeType<T> node = new NodeType<T>(key);
@@ -19,6 +20,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     }
 
+    // helper method for the insert method
     public void insertHelper(NodeType<T> current, T key){
 
         if (key.compareTo(current.info) < 0) {
@@ -36,7 +38,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
-
+    // deletes a node with the given key 
     public void delete(T key){
 
         if(root == null || key == null){
@@ -46,6 +48,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
+    // helper method for the delete method
     public NodeType<T> deleteHelper(NodeType<T> curr, T key) {
         if (curr == null) {
             return null;
@@ -69,6 +72,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return curr;
     }
 
+    // returns the predecessor of the given node
     public NodeType<T> getPred(NodeType<T> curr){
 
         while(curr.right != null){
@@ -79,12 +83,13 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
 
-
+    // returns true if item is found in the tree, false otherwise
     public boolean retrive(T item){
 
         return retrieveHelper(root, item);
     }
 
+    // helper method for the retrieve method
     public boolean retrieveHelper(NodeType<T> curr, T item){
 
         if(curr == null){
@@ -100,6 +105,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
+    // prints the nodes of the tree in order
     public void inOrder(){
 
         LinkedList<T> list =  new LinkedList<>(); 
@@ -110,6 +116,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
 
+    // helper method for the inOrder method 
     public List<T> traverse(NodeType<T> curr, LinkedList<T> list){
 
         if(curr.left != null){
