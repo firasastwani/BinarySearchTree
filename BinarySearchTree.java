@@ -178,9 +178,74 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
 
-    public void getCousins(){
+    // returns the cousins of the given key
+    public List<T> getCousins(T key) {
+        LinkedList<T> list = new LinkedList<>(); 
+        NodeType<T> parent = findParent(root, key);
 
+        if (parent == null){
+            return list;
+        }
+
+        int level = getLevel(root, key);
+
+        levelOrder(root, level, parent, list);
         
+        return list; 
+    }
+
+    private NodeType<T> findParent(NodeType<T> curr, T key) {
+        if (curr == null) return null;
+        
+        if ((curr.left != null && curr.left.info.compareTo(key) == 0) ||(curr.right != null && curr.right.info.compareTo(key) == 0)) {
+            return curr;
+        }
+        
+        NodeType<T> leftResult = findParent(curr.left, key);
+
+        if (leftResult != null){
+            return leftResult;
+        }
+
+        return findParent(curr.right, key);
+    }
+
+    public int getLevel(NodeType<T> curr, T key){
+
+        if(curr == null) {
+            return -1; 
+        }
+
+        if(key.compareTo(curr.info) == 0) {
+            return 0; 
+        }
+
+        int leftLevel = getLevel(curr.left, key);
+        int rightLevel = getLevel(curr.right, key);
+
+        if (leftLevel == -1 && rightLevel == -1) {
+            return -1;
+        } else {
+            return 1 + Math.max(leftLevel, rightLevel);
+        }
+    }
+
+    public List<T> levelOrder(NodeType<T> curr, int level, NodeType<T> targetParent, LinkedList<T> list) {
+        if (curr == null) {
+            return list;
+        }
+
+        if (level == 0) {
+            // Only add if curr is not a child of the target parent
+            if (curr != targetParent.left && curr != targetParent.right) {
+                list.add(curr.info);
+            }
+        } else {
+            levelOrder(curr.left, level - 1, targetParent, list);
+            levelOrder(curr.right, level - 1, targetParent, list);
+        }
+        
+        return list;
     }
 
 }
