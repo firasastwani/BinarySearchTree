@@ -13,7 +13,7 @@ public class BinarySearchTreeDriver<T extends Comparable<T>> {
         bst.insert(5);
         bst.insert(15);
         bst.insert(3);
-        //bst.insert(7);
+        bst.insert(7);
         bst.insert(12);
         //bst.insert(18);
 
@@ -21,6 +21,7 @@ public class BinarySearchTreeDriver<T extends Comparable<T>> {
         bst.inOrder();
 
         System.out.println(bst.getSingleParent());
+        System.out.println(bst.getNumLeafNodes());
     }
 
 }

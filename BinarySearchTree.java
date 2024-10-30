@@ -157,10 +157,24 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return list; 
     }
 
+    // returns the number of leaf nodes in the tree
+    public int getNumLeafNodes(){
 
-    public void getNumLeafNodes(){
+        return leafNodesHelper(root); 
+    }
 
+    // helper method for the getNumLeafNodes method
+    public int leafNodesHelper(NodeType<T> curr){
 
+        if(curr == null){
+           return 0; 
+        }
+
+        if(curr.left == null && curr.right == null){
+            return 1 ;
+        }
+
+        return leafNodesHelper(curr.left) + leafNodesHelper(curr.right); 
     }
 
 
