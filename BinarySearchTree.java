@@ -84,7 +84,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
 
     // returns true if item is found in the tree, false otherwise
-    public boolean retrive(T item){
+    public boolean retrieve(T item){
 
         return retrieveHelper(root, item);
     }
