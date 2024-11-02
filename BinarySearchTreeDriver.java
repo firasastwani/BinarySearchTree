@@ -209,7 +209,7 @@ public class BinarySearchTreeDriver<T extends Comparable<T>> {
                     scanner.nextLine(); 
                 }
             }
-            inputScanner.close();
+
         }
 // Testing
 
