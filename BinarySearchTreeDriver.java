@@ -118,7 +118,7 @@ public class BinarySearchTreeDriver<T extends Comparable<T>> {
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please try again.");
-                    scanner.nextLine(); // clear the invalid input
+                    scanner.nextLine(); 
                 }
 
             } else if(command.equals("d")){
@@ -143,7 +143,7 @@ public class BinarySearchTreeDriver<T extends Comparable<T>> {
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please try again.");
-                    scanner.nextLine(); // clear the invalid input
+                    scanner.nextLine(); 
                 }
 
             } else if(command.equals("r")){
@@ -176,7 +176,7 @@ public class BinarySearchTreeDriver<T extends Comparable<T>> {
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please try again.");
-                    scanner.nextLine(); // clear the invalid input
+                    scanner.nextLine(); 
                 }
 
             } else if(command.equals("l")){
@@ -206,10 +206,10 @@ public class BinarySearchTreeDriver<T extends Comparable<T>> {
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please try again.");
-                    scanner.nextLine(); // clear the invalid input
+                    scanner.nextLine(); 
                 }
             }
-
+            inputScanner.close();
         }
 // Testing
 

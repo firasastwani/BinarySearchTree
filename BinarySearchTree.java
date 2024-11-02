@@ -190,6 +190,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     // returns the cousins of the given key
     public List<T> getCousins(T key) {
+        
         LinkedList<T> list = new LinkedList<>(); 
         NodeType<T> parent = findParent(root, key);
 
@@ -204,6 +205,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return list; 
     }
 
+    // finds the parent node of the inputted key
     private NodeType<T> findParent(NodeType<T> curr, T key) {
         if (curr == null) return null;
         
@@ -220,6 +222,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return findParent(curr.right, key);
     }
 
+    // finds the level of the inputted key
     public int getLevel(NodeType<T> curr, T key){
 
         if(curr == null) {
@@ -240,13 +243,14 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
+    // returns the level order traversal of the given key (minus those that are children of the target parent)
     public List<T> levelOrder(NodeType<T> curr, int level, NodeType<T> targetParent, LinkedList<T> list) {
         if (curr == null) {
             return list;
         }
 
         if (level == 0) {
-            // Only add if curr is not a child of the target parent
+            // add if curr is not a child of the target parent
             if (curr != targetParent.left && curr != targetParent.right) {
                 list.add(curr.info);
             }
