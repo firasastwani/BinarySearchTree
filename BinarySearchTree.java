@@ -12,12 +12,16 @@ public class BinarySearchTree<T extends Comparable<T>> {
         NodeType<T> node = new NodeType<T>(key);
         NodeType<T> current = root; 
 
+        if(retrieve(key)){
+            System.out.println("Item already exists in the tree.");
+            return; 
+        }
+
         if(root == null){
             root = node;
         } else {
             insertHelper(current, key);
         }
-
     }
 
     // helper method for the insert method
@@ -40,6 +44,11 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     // deletes a node with the given key 
     public void delete(T key){
+
+        if(!retrieve(key)){
+            System.out.println("Item not found in the tree.");
+            return; 
+        }
 
         if(root == null || key == null){
             return;
@@ -112,7 +121,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
         NodeType<T> curr = root;
 
         traverse(curr, list);
-        System.out.println(list);
+
+        System.out.println("In-order: " + list);
     }
 
 
