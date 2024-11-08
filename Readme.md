@@ -26,5 +26,3 @@ A Binary Search Tree is a hierarchical data structure where each node has at mos
 | Insert    | O(log n)     | O(n)       |
 | Delete    | O(log n)     | O(n)       |
 | Search    | O(log n)     | O(n)       |
-
-## Usage
